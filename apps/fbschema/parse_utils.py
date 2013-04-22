@@ -5,8 +5,8 @@ import datetime
 import re
 
 from django.db.models import CharField, DateTimeField, ForeignKey, TextField, BigIntegerField
-from fb_client.apps.fbschema.struct_models import *
-from fb_client.apps.fbschema.models import *
+from apps.fbschema.struct_models import *
+from apps.fbschema.models import *
 
 def parse_fbarray(fbarray):
     '''
