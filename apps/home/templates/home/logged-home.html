@@ -28,7 +28,7 @@
 {% block 'main-content' %}
 <div class='row'>
   <div class='span9 well'>
-      <p> Let us begin with downloading FQL Tables. I plan to do it by asynchronous task queues using celery. Front end UI is not ready yet, but once it is done starting asynchronous download after hosting this application on your server would be automated. But in this developer demo we have to run one callback at a time in sequence to download information from all tables. To start with the 'user' table click here : <a href='{%url fbschema_table_user%}'> table/user </a> </p> 
+      <p> Let us begin with downloading FQL Tables. I plan to do it by asynchronous task queues using celery. Front end UI is not ready yet, but once it is done starting asynchronous download after hosting this application on your server would be automated. But in this developer demo we have to run one callback at a time in sequence to download information from all tables. To start with the 'user' table click here : <a href='{%url 'fbschema_table_user'%}'> table/user </a> </p> 
   </div>
 
   <div class='span2 sidebar-nave'>

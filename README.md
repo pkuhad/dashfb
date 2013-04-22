@@ -14,7 +14,7 @@ Current features I am focusing on -
  * We can also create and host a local fql server using locally stored data.
 
 For example you can do things like -
- * Finding out top ten albums in your social graph -
+ * Finding out top ten albums in your social graph based on their like counts -
         
         >>> from fb_client.apps.fbschema.models import FacebookAlbum
             for i in range(0,10):
@@ -41,12 +41,15 @@ For example you can do things like -
 
 ## Installation Instructions
 
-DashFB is a django based application so you need to have [Django](https://www.djangoproject.com/) installed on your host and basic toolset required for it, that pretty much includes requirements like MySql and Python. You also need to install this django contributed app [Django Facebook](https://github.com/tschellenbach/Django-facebook) as a python module, you can use `pip install django_facebook`.
+DashFB is a django based application so you need to have [Django 1.5](https://www.djangoproject.com/) installed on your host and basic toolset required for it, that pretty much includes requirements like MySql and Python. You also need to install this django contributed app [Django Facebook](https://github.com/tschellenbach/Django-facebook) as a python module, you can use `pip install django_facebook`.
 
-Current installation and usage of this application is developer oriented. Contribution on UI is invited, I am excited to see this application downloading all facebook data asynchronously from API with just one click.
+Current installation and usage of this application is developer oriented. Contribution on UI is invited, it would be awesome to see this application downloading all facebook data asynchronously from API with just one click.
 Working on Developer Installation :
  * You will need a Facebook Application to work with. Open up [Developer Facebook](http://developers.facebook.com/apps) and create a facebook application to work with. Don't forget to provide 'App Domain' as 'localhost' and 'Site URL' (in 'Website with Facebook Logic' section) as 'http://localhost:8000' if you are trying this project on your localhost.
- * Create a MySql Database to work with. Keep remember to choose the correct collation while creating the database otherwise you would face 'Incorrect string value' error at some point due to collation issues. In my case 'utf8_general_ci' works fine. If you are not sure which collation to go with, create the database with 'utf8_general_ci'.
+ * Create a MySql Database to work with. Keep remember to choose the correct collation while creating the database otherwise you would face 'Incorrect string value' error at some point due to collation issues. In my case 'utf8_general_ci' works fine. If you are not sure which collation to go with, create the database with 'utf8_general_ci'. You can use this command in mysql terminal :
+
+        CREATE DATABASE {your_database_name} COLLATE utf8_general_ci;
+
  * You need to create a local_settings.py file in folder root to provide database name and password. A template file named local_settings.py.template has been provided to start with. In this file you also need to add your FACEBOOK_APP_ID and FACEBOOK_APP_SECRET settings. 
  * Run `python manage.py syncdb` to install database tables.
  * Finally run `python manage.py runserver` to start Django's development server.
@@ -57,7 +60,7 @@ Working on Developer Installation :
 Currently these tables have been implemented : user, friend, like, album, photo, notification, link and stream. It's not possible to fetch all data of all your friends in just one api request for some tables, for example like 'photo'. So we do this in batches, how many number of friends we can cover in one batch depends on the amount of data this table can have for one friend. Check out code `fbschema/views.py` to comprehend what I exactly mean. For now I am doing this batch operation for first 'n' friends. If you alter this hardcoded 'n' in code and find this error : `Facebookuser matching query does not exist` then don't worry it just means we don't have all friends in 'user' table to join with i.e without having downloaded all friends profile we cannot download any other information for him. This 'define the number of batches and download all information batches' task has to be done asynchronously.
 
 ## Contribution Invited
-If you loved this idea and have any feeback or just want to say something on this project, you are welcome. My twitter handle is [@paraskuhad](http://twitter.com/paraskuhad). Do checkout the project and I am accepting feature requests. I would be happy to contribute more code and work with potential contributors, together we can make things more awesome.
+I feel obliged for open source softwares, I owe them too much. If you loved this idea and have any feeback or just want to say something on this project, you are welcome. My twitter handle is [@paraskuhad](http://twitter.com/paraskuhad). Do checkout the project and I am accepting feature requests. I would be happy to contribute more code and work with potential contributors, together we can make things more awesome.
 
 ## License
 
