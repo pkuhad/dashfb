@@ -94,10 +94,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'fb_client.urls'
+ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'fb_client.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -116,10 +116,10 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'fb_client.apps.index',
+    'apps.index',
     'django_facebook',
-    'fb_client.apps.home',
-    'fb_client.apps.fbschema',
+    'apps.home',
+    'apps.fbschema',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -166,12 +166,12 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'fb_client.apps.index.views': {
+        'apps.index.views': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
         },
-        'fb_client.apps.fbschema.views': {
+        'apps.fbschema.views': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,

@@ -6,8 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'fb_client.views.home', name='home'),
-    # url(r'^fb_client/', include('fb_client.foo.urls')),
+    # url(r'^$', 'views.home', name='home'),
+    # url(r'^fb_client/', include('foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -16,13 +16,13 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     # App 'Index'
-    url(r"^", include('fb_client.apps.index.urls'), name="index"),
+    url(r"^", include('apps.index.urls'), name="index"),
 
     # App 'Home'
-    url(r"^", include('fb_client.apps.home.urls'), name="home"),
+    url(r"^", include('apps.home.urls'), name="home"),
     
     # App 'Fbschema'
-    url(r"^", include('fb_client.apps.fbschema.urls'), name="fbschema"),
+    url(r"^", include('apps.fbschema.urls'), name="fbschema"),
 
     # Third party App 'Django Facebook'
     url(r'^facebook/', include('django_facebook.urls')),

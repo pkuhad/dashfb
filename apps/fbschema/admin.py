@@ -1,5 +1,5 @@
 from django.contrib import admin
-from fb_client.apps.fbschema.models import *
+from apps.fbschema.models import *
 
 class FacebookUserAdmin(admin.ModelAdmin):
     list_display = ('username', 'about_me')

@@ -9,7 +9,7 @@ from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 
-from fb_client.apps.fbschema.models import *
+from apps.fbschema.models import *
 
 from django_facebook.api import require_persistent_graph
 

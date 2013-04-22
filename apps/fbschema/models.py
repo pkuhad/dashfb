@@ -4,10 +4,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 
-from fb_client.apps.fbschema.struct_models import *
-from fb_client.apps.fbschema.utils import get_fql_from_model
+from apps.fbschema.struct_models import *
+from apps.fbschema.utils import get_fql_from_model
 
-from fb_client.apps.fbschema.utils import compare_keys_with_fields
+from apps.fbschema.utils import compare_keys_with_fields
 
 logger = logging.getLogger(__name__)
 
@@ -66,7 +66,7 @@ class BaseFbModel(models.Model):
 
     @classmethod
     def prepare_dict(self, response_data_dict, request=None):
-        from fb_client.apps.fbschema.parse_utils import parse_clean_field_value
+        from apps.fbschema.parse_utils import parse_clean_field_value
         '''
         Receives the response from fql graph query. Cleans/Parses the data and returns a valid
         dict that can be used to create and save a tuple/data-record.
@@ -90,7 +90,7 @@ class BaseFbModel(models.Model):
 
     @classmethod
     def save_update_delete(self, request, response_data, stream_nature=False):
-        from fb_client.apps.fbschema.parse_utils import parse_clean_field_value
+        from apps.fbschema.parse_utils import parse_clean_field_value
         ''' 
         Main function which saves, updates and deletes on updated result sets 
         This function is always called with subclasses 

@@ -42,8 +42,8 @@ def test_view(request):
     '''
     A simple view just for testing purpose
     '''
-    from fb_client.apps.fbschema.utils import get_fields_from_model
-    from fb_client.apps.fbschema.models import *
+    from apps.fbschema.utils import get_fields_from_model
+    from apps.fbschema.models import *
 
     #graph = require_persistent_graph(request)
     #response_data = graph.fql("select url, title from link where owner = me() limit 1000")

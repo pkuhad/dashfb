@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('fb_client.apps.fbschema.views',
+urlpatterns = patterns('apps.fbschema.views',
     url(r'table/user$', 'table_user', name='fbschema_table_user'),
     url(r'table/friend$', 'table_friend', name='fbschema_table_friend'),
     url(r'table/user_friends_batch$', 'table_user_friends_batch', name='fbschema_table_user_friends_batch'),
