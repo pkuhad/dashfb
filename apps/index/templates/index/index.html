@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dash FB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Dash FB</a>
+          <div class="nav-collapse collapse">
+            {% block 'nav-main-menu' %}
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+            {% endblock %}
+          </div><!--/.nav-collapse -->
+          {% block 'nav-right-menu' %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <div id="main-content" class="container">
+      
+      {% block 'main-content' %}
+      
+      <h1>DashFB : Your personal Facebook Dashboard</h1>
+      <p>DashFB lets you download and update all your facebook data stored locally in exact FQL table schemas as in Facebook API. This enables you to perform SQL JOINS on FQL tables and makes your own facebook data computable</p>
+      <a href='{% url index_facebook_connect %}' class='btn btn-info btn-large'> Connect with Facebook </a>
+       
+      {% endblock %}
+      
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    {% include 'django_facebook/_facebook_js.html' %}    
+    <script src="{{ STATIC_URL }}js/libs/jquery-1.7.1.min.js"></script>
+    <script src="{{ STATIC_URL }}js/libs/bootstrap.js"></script>
+
+  </body>
+</html>
+
