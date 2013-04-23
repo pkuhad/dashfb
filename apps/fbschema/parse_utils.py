@@ -28,10 +28,10 @@ def parse_fbdate(fbdate):
         try:
             return datetime.datetime.strptime(fbdate, format)
         except ValueError:
-            format = '%B %d' 
+            safe_fbdate = "%s, 1970" % fbdate 
             # TODO: What would happen to year in database
             # TODO: RuntimeWarning: DateTimeField received a naive datetime (1900-12-29 00:00:00) while time zone support is active.
-            return datetime.datetime.strptime(fbdate, format)
+            return datetime.datetime.strptime(safe_fbdate, format)
 
 
 def parse_clean_field_value(field, value, request=None):

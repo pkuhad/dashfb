@@ -1,5 +1,5 @@
 # DashFB
-DashFB lets you download and update all your facebook data stored locally in exact FQL table schemas as in Facebook API. This enables you to perform SQL JOINS on FQL tables and makes your own facebook data computable. This project is under strong development, as of now it is implementing some basic FQL tables to play with.
+DashFB lets you download and update all your facebook data in exact FQL table schemas as in Facebook API. This enables you to perform SQL JOINS on FQL tables and makes your own facebook data computable. This project is under strong development, as of now it is implementing some basic FQL tables to play with.
 
  * Created by [Paras Kuhad](http://pacificparas.org) 
  * Twitter: [@paraskuhad](http://twitter.com/paraskuhad)
