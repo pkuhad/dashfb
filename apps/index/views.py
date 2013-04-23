@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core.urlresolvers import reverse
 
 # Django Facebook
 from django_facebook import exceptions as facebook_exceptions, \
@@ -144,8 +144,9 @@ def _connect(request, facebook_login):
                                              "to %s's facebook profile") % facebook_data['name'])
                 elif action is CONNECT_ACTIONS.REGISTER:
                     #hook for tying in specific post registration functionality
-                    response = backend.post_registration_redirect(
-                        request, user)
+                    #response = backend.post_registration_redirect(
+                    #    request, user)
+                    return HttpResponseRedirect(reverse('home_logged_home'))
                     #compatibility for Django registration backends which return redirect tuples instead of a response
                     if not isinstance(response, HttpResponse):
                         to, args, kwargs = response

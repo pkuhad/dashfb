@@ -47,8 +47,6 @@ For example you can do things like -
  
  * You also need to install this django contributed app [Django Facebook](https://github.com/tschellenbach/Django-facebook) as a python module, you can use this command in terminal for this purpose `pip install django_facebook`.
 
- * [Django Registration](https://bitbucket.org/ubernostrum/django-registration) will also be required as a registration backend. Use this command in terminal to install this contributed django app `pip install django_registration`
-
 ### Developer Installation :
 Current installation and usage of this application is developer oriented. Contribution on UI is invited, it would be awesome to see this application downloading all facebook data asynchronously from API with just one click.
 
